@@ -12,8 +12,7 @@ architecture simulation of tb is
 
    signal rst_s      : std_logic;
    signal clk_s      : std_logic;
-   signal cen_s      : std_logic;
-   signal cen_p1_s   : std_logic;
+   signal cen_p1_r   : std_logic;
    signal cs_n_s     : std_logic;
    signal wr_n_s     : std_logic;
    signal a0_s       : std_logic;
@@ -46,6 +45,22 @@ begin
 
 
    ----------------------------------------------------
+   -- Clock enable
+   ----------------------------------------------------
+
+   p_cen_p1_r : process (clk_s)
+   begin
+      if rising_edge(clk_s) then
+         cen_p1_r <= not cen_p1_r;
+
+         if rst_s = '1' then
+            cen_p1_r <= '0';
+         end if;
+      end if;
+   end process p_cen_p1_r;
+
+
+   ----------------------------------------------------
    -- Instantiate YM2151
    ----------------------------------------------------
 
@@ -53,8 +68,8 @@ begin
       port map (
          rst       => rst_s,        -- input
          clk       => clk_s,        -- input
-         cen       => cen_s,        -- input
-         cen_p1    => cen_p1_s,     -- input
+         cen       => '1',          -- input
+         cen_p1    => cen_p1_r,     -- input
          cs_n      => cs_n_s,       -- input
          wr_n      => wr_n_s,       -- input
          a0        => a0_s,         -- input
@@ -72,10 +87,8 @@ begin
          dacright  => dacright_s    -- output
       ); -- i_jt51
 
-   cen_s    <= '0';
-   cen_p1_s <= '0';
-   cs_n_s   <= '0';
-   wr_n_s   <= '0';
+   cs_n_s   <= '1';
+   wr_n_s   <= '1';
    a0_s     <= '0';
    din_s    <= (others => '0');
 

@@ -25,4 +25,4 @@ compile:
 	vcom tb.vhd
 
 sim:
-	vsim tb
+	vsim tb -do tb.do
