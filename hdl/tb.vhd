@@ -12,7 +12,7 @@ architecture simulation of tb is
 
    signal rst_s      : std_logic;
    signal clk_s      : std_logic;
-   signal cen_p1_r   : std_logic;
+   signal cen_p1_r   : std_logic := '0';
    signal cs_n_s     : std_logic;
    signal wr_n_s     : std_logic;
    signal a0_s       : std_logic;
@@ -50,12 +50,8 @@ begin
 
    p_cen_p1_r : process (clk_s)
    begin
-      if rising_edge(clk_s) then
+      if falling_edge(clk_s) then
          cen_p1_r <= not cen_p1_r;
-
-         if rst_s = '1' then
-            cen_p1_r <= '0';
-         end if;
       end if;
    end process p_cen_p1_r;
 

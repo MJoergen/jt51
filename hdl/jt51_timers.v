@@ -60,7 +60,7 @@ jt51_timer #(.counter_width(8)) timer_B(
     .zero       ( zero      ),
     .start_value( value_B   ),  
     .load       ( load_B    ),
-    .clr_flag   ( {clr_flag_B, 4'b0}),
+    .clr_flag   ( clr_flag_B),
     .flag       ( flag_B    ),
     .overflow   (           )
 );
@@ -81,7 +81,8 @@ module jt51_timer #(parameter counter_width = 10 )
 );
 
 reg last_load;
-reg [counter_width-1:0] cnt, next;
+reg [counter_width-1:0] cnt = 0;
+reg [counter_width-1:0] next;
 
 always@(posedge clk, posedge rst)
     if( rst )
