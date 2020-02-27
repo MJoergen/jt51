@@ -26,3 +26,9 @@ compile:
 
 sim:
 	vsim tb -do tb.do
+
+clean:
+	rm -r -f transcript
+	rm -r -f vsim.wlf
+	rm -r -f work/
+
