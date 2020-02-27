@@ -22,6 +22,7 @@ compile:
 	vlog jt51_sh.v
 	vlog jt51_timers.v
 	vlog jt51.v
+	vcom ctrl.vhd
 	vcom tb.vhd
 
 sim:

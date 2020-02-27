@@ -87,10 +87,21 @@ begin
          dacright  => dacright_s    -- output
       ); -- i_jt51
 
-   cs_n_s   <= '1';
-   wr_n_s   <= '1';
-   a0_s     <= '0';
-   din_s    <= (others => '0');
+
+   ----------------------------------------------------
+   -- Instantiate controller
+   ----------------------------------------------------
+
+   i_ctrl : entity work.ctrl
+      port map (
+         clk_i  => clk_s,
+         rst_i  => rst_s,
+         cs_n_o => cs_n_s,
+         wr_n_o => wr_n_s,
+         a0_o   => a0_s,
+         dout_o => din_s,
+         din_i  => dout_s
+      ); -- i_ctrl
 
 end architecture simulation;
 
