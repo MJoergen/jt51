@@ -84,13 +84,6 @@ module jt51_reg(
     output  reg     op31_acc
 );
 
-reg     kon, koff;
-reg [1:0] csm_state;
-reg [4:0] csm_cnt;
-
-wire csm_kon  = csm_state[0];
-wire csm_koff = csm_state[1];
-
 always @(*) begin
     m1_enters = cur_op == 2'b00;
     m2_enters = cur_op == 2'b01;

@@ -53,16 +53,16 @@ jt51_timer #(.counter_width(10)) timer_A(
     .overflow   ( overflow_A)
 );
 
-jt51_timer #(.counter_width(12)) timer_B(
-    .rst        ( rst           ),
-    .clk        ( clk           ), 
-    .cen        ( cen           ), 
-    .zero       ( zero          ),
-    .start_value( {value_B,4'b0}),  
-    .load       ( load_B        ),
-    .clr_flag   ( clr_flag_B    ),
-    .flag       ( flag_B        ),
-    .overflow   (               )
+jt51_timer #(.counter_width(8)) timer_B(
+    .rst        ( rst       ),
+    .clk        ( clk       ), 
+    .cen        ( cen       ), 
+    .zero       ( zero      ),
+    .start_value( value_B   ),  
+    .load       ( load_B    ),
+    .clr_flag   ( clr_flag_B),
+    .flag       ( flag_B    ),
+    .overflow   (           )
 );
 
 endmodule
@@ -81,7 +81,8 @@ module jt51_timer #(parameter counter_width = 10 )
 );
 
 reg last_load;
-reg [counter_width-1:0] cnt, next;
+reg [counter_width-1:0] cnt = 0;
+reg [counter_width-1:0] next;
 
 always@(posedge clk, posedge rst)
     if( rst )

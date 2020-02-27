@@ -19,29 +19,35 @@ architecture simulation of ctrl is
    type config_t is array (natural range <>) of std_logic_vector(15 downto 0);
 
    constant C_CONFIG : config_t := (
+      X"00FF",
       X"20C7",
+      X"801F",
+      X"E0FF",
+      X"285A",
+      X"0808",
       X"0000"
    );
 
    type STATE_t is (WAIT_ST, ADDR_ST, DATA_ST);
    signal state_r : STATE_t := WAIT_ST;
    signal idx_r   : integer := 0;
+   signal cnt_r   : std_logic_vector(7 downto 0);
 
 begin
 
-   cs_n_o <= '0' when state_r = ADDR_ST else
-             '0' when state_r = DATA_ST else
-             '0' when state_r = WAIT_ST else
+   cs_n_o <= '0' when state_r = ADDR_ST and cnt_r = 0 else
+             '0' when state_r = DATA_ST and cnt_r = 0 else
+             '0' when state_r = WAIT_ST and cnt_r = 0 else
              '1';
 
-   wr_n_o <= '0' when state_r = ADDR_ST else
-             '0' when state_r = DATA_ST else
-             '1' when state_r = WAIT_ST else
+   wr_n_o <= '0' when state_r = ADDR_ST and cnt_r = 0 else
+             '0' when state_r = DATA_ST and cnt_r = 0 else
+             '1' when state_r = WAIT_ST and cnt_r = 0 else
              '1';
 
-   a0_o   <= '0' when state_r = ADDR_ST else
-             '1' when state_r = DATA_ST else
-             '0' when state_r = WAIT_ST else
+   a0_o   <= '0' when state_r = ADDR_ST and cnt_r = 0 else
+             '1' when state_r = DATA_ST and cnt_r = 0 else
+             '0' when state_r = WAIT_ST and cnt_r = 0 else
              '0';
 
    dout_o <= C_CONFIG(idx_r)(15 downto 8) when state_r = ADDR_ST else
@@ -54,20 +60,41 @@ begin
       if rising_edge(clk_i) then
          case state_r is
             when ADDR_ST =>
-               state_r <= DATA_ST;
+               if cnt_r = 0 then
+                  state_r <= DATA_ST;
+                  cnt_r   <= X"20";
+               else
+                  cnt_r <= cnt_r - 1;
+               end if;
 
             when DATA_ST =>
-               idx_r   <= idx_r + 1;
-               state_r <= WAIT_ST;
+               if cnt_r = 0 then
+                  idx_r   <= idx_r + 1;
+                  state_r <= WAIT_ST;
+                  cnt_r   <= X"20";
+               else
+                  cnt_r <= cnt_r - 1;
+               end if;
 
             when WAIT_ST =>
-               if din_i(7) = '0' and C_CONFIG(idx_r) /= X"0000" then
-                  state_r <= ADDR_ST;
+               if cnt_r = 0 and C_CONFIG(idx_r) /= X"0000" then
+                  if C_CONFIG(idx_r)(15 downto 8) = X"00" then
+                     cnt_r <= C_CONFIG(idx_r)(7 downto 0);
+                     idx_r <= idx_r + 1;
+                  else
+                     if din_i(7) = '0' then
+                        state_r <= ADDR_ST;
+                        cnt_r   <= X"20";
+                     end if;
+                  end if;
+               else
+                  cnt_r <= cnt_r - 1;
                end if;
          end case;
 
          if rst_i = '1' then
             idx_r   <= 0;
+            cnt_r   <= (others => '0');
             state_r <= WAIT_ST;
          end if;
       end if;
