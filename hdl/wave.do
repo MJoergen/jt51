@@ -1,22 +1,22 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -group tb /tb/rst_s
-add wave -noupdate -group tb /tb/clk_s
-add wave -noupdate -group tb /tb/din_s
-add wave -noupdate -group tb /tb/dout_s
-add wave -noupdate -group tb /tb/ct1_s
-add wave -noupdate -group tb /tb/ct2_s
-add wave -noupdate -group tb /tb/irq_n_s
-add wave -noupdate -group tb /tb/sample_s
-add wave -noupdate -group tb /tb/left_s
-add wave -noupdate -group tb /tb/right_s
-add wave -noupdate -group tb /tb/xleft_s
-add wave -noupdate -group tb /tb/xright_s
-add wave -noupdate -group tb /tb/dacleft_s
-add wave -noupdate -group tb /tb/dacright_s
-add wave -noupdate -group tb /tb/a0_s
-add wave -noupdate -group tb /tb/wr_n_s
-add wave -noupdate -group tb /tb/cs_n_s
+add wave -noupdate -expand -group tb /tb/rst_s
+add wave -noupdate -expand -group tb /tb/clk_s
+add wave -noupdate -expand -group tb /tb/din_s
+add wave -noupdate -expand -group tb /tb/dout_s
+add wave -noupdate -expand -group tb /tb/ct1_s
+add wave -noupdate -expand -group tb /tb/ct2_s
+add wave -noupdate -expand -group tb /tb/irq_n_s
+add wave -noupdate -expand -group tb /tb/sample_s
+add wave -noupdate -expand -group tb /tb/left_s
+add wave -noupdate -expand -group tb /tb/right_s
+add wave -noupdate -expand -group tb /tb/xleft_s
+add wave -noupdate -expand -group tb /tb/xright_s
+add wave -noupdate -expand -group tb -format Analog-Step -height 84 -max 65535.0 /tb/dacleft_s
+add wave -noupdate -expand -group tb /tb/dacright_s
+add wave -noupdate -expand -group tb /tb/a0_s
+add wave -noupdate -expand -group tb /tb/wr_n_s
+add wave -noupdate -expand -group tb /tb/cs_n_s
 add wave -noupdate -group ctrl /tb/i_ctrl/clk_i
 add wave -noupdate -group ctrl /tb/i_ctrl/rst_i
 add wave -noupdate -group ctrl /tb/i_ctrl/cs_n_o
@@ -233,57 +233,57 @@ add wave -noupdate -group jt51_pg -group Internal /tb/i_jt51/u_pg/octave_III
 add wave -noupdate -group jt51_pg -group Internal /tb/i_jt51/u_pg/keycode_I
 add wave -noupdate -group jt51_pg -group Internal /tb/i_jt51/u_pg/ph_IX
 add wave -noupdate -group jt51_pg -group Internal /tb/i_jt51/u_pg/ph_X
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/rst
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/clk
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/cen
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/zero
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/keycode_III
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/arate_II
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/rate1_II
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/rate2_II
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/rrate_II
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/d1l_I
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/ks_III
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/keyon_II
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/pg_rst_III
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/tl_VII
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/am
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/ams_VII
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/amsen_VII
-add wave -noupdate -group jt51_eg /tb/i_jt51/u_eg/eg_XI
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/d1level_II
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/cnt_V
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/rate_IV
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_VI
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_VII
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_VIII
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_II
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/sum_eg_tl_VII
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/step_V
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/step_VI
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/sum_up
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/rate_V
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/rate_VI
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_cnt_base
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_cnt
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/am_final_VII
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/cnt_out
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/pre_rate_III
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/cfg_III
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/step_idx
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_in_III
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_in_IV
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_in_V
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_in_VI
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_off_VI
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/keyon_last_II
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/keyon_now_II
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/keyoff_now_II
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_off_II
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_II
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_sum0_VI
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_result_VI
-add wave -noupdate -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_sum_VI
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/rst
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/clk
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/cen
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/zero
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/keycode_III
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/arate_II
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/rate1_II
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/rate2_II
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/rrate_II
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/d1l_I
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/ks_III
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/keyon_II
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/pg_rst_III
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/tl_VII
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/am
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/ams_VII
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/amsen_VII
+add wave -noupdate -expand -group jt51_eg /tb/i_jt51/u_eg/eg_XI
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/d1level_II
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/cnt_V
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/rate_IV
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_VI
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_VII
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_VIII
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_II
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/sum_eg_tl_VII
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/step_V
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/step_VI
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/sum_up
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/rate_V
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/rate_VI
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_cnt_base
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/eg_cnt
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/am_final_VII
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/cnt_out
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/pre_rate_III
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/cfg_III
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/step_idx
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_in_III
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_in_IV
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_in_V
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_in_VI
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_off_VI
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/keyon_last_II
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/keyon_now_II
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/keyoff_now_II
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_off_II
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/state_II
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_sum0_VI
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_result_VI
+add wave -noupdate -expand -group jt51_eg -group Internal /tb/i_jt51/u_eg/ar_sum_VI
 add wave -noupdate -group jt51_timers /tb/i_jt51/timers/rst
 add wave -noupdate -group jt51_timers /tb/i_jt51/timers/clk
 add wave -noupdate -group jt51_timers /tb/i_jt51/timers/cen
@@ -300,56 +300,56 @@ add wave -noupdate -group jt51_timers /tb/i_jt51/timers/flag_A
 add wave -noupdate -group jt51_timers /tb/i_jt51/timers/flag_B
 add wave -noupdate -group jt51_timers /tb/i_jt51/timers/overflow_A
 add wave -noupdate -group jt51_timers /tb/i_jt51/timers/irq_n
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/rst
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/clk
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/cen
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/pg_phase_X
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/con_I
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/fb_II
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/eg_atten_XI
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/use_prevprev1
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/use_internal_x
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/use_internal_y
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/use_prev2
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/use_prev1
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/test_214
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/m1_enters
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/c1_enters
-add wave -noupdate -expand -group jt51_op /tb/i_jt51/u_op/op_XVII
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/prev1
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/prevprev1
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/prev2
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/x
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/y
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/xs
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/ys
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/pm_preshift_II
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/m1_II
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/phasemod_II
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/phasemod_X
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/phase
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/phaselo_XI
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/aux_X
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/signbit_X
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/sta_XI
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/stb
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/stf
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/stg
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/logsin
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/subtresult
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/atten_internal_XI
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/exp_XII
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/totalatten_XII
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/etb
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/etf
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/etg
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/mantissa_XIII
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/exponent_XIII
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/shifter
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/shifter_2
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/shifter_3
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/op_XIII
-add wave -noupdate -expand -group jt51_op -group Internal /tb/i_jt51/u_op/signbit_XIII
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/rst
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/clk
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/cen
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/pg_phase_X
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/con_I
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/fb_II
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/eg_atten_XI
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/use_prevprev1
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/use_internal_x
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/use_internal_y
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/use_prev2
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/use_prev1
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/test_214
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/m1_enters
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/c1_enters
+add wave -noupdate -group jt51_op /tb/i_jt51/u_op/op_XVII
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/prev1
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/prevprev1
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/prev2
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/x
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/y
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/xs
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/ys
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/pm_preshift_II
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/m1_II
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/phasemod_II
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/phasemod_X
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/phase
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/phaselo_XI
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/aux_X
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/signbit_X
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/sta_XI
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/stb
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/stf
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/stg
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/logsin
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/subtresult
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/atten_internal_XI
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/exp_XII
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/totalatten_XII
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/etb
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/etf
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/etg
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/mantissa_XIII
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/exponent_XIII
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/shifter
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/shifter_2
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/shifter_3
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/op_XIII
+add wave -noupdate -group jt51_op -group Internal /tb/i_jt51/u_op/signbit_XIII
 add wave -noupdate -group jt51_acc /tb/i_jt51/u_acc/rst
 add wave -noupdate -group jt51_acc /tb/i_jt51/u_acc/clk
 add wave -noupdate -group jt51_acc /tb/i_jt51/u_acc/cen
@@ -399,4 +399,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {131468782286 fs} {791987167899 fs}
+WaveRestoreZoom {0 fs} {8400 us}

@@ -239,7 +239,7 @@ always @(posedge clk, posedge rst) begin : memory_mapped_registers
             `endif
             csm     <= 1'b0;
             lfo_rst <= 1'b0;
-            { clr_flag_B, clr_flag_A } <= 4'd0;
+            { clr_flag_B, clr_flag_A } <= 2'd0;
         end
     end
 end
