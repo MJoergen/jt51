@@ -19,13 +19,14 @@ architecture simulation of ctrl is
    type config_t is array (natural range <>) of std_logic_vector(15 downto 0);
 
    constant C_CONFIG : config_t := (
-      X"00FF",
-      X"20C7",
-      X"801F",
-      X"E0FF",
-      X"285A",
-      X"0808",
-      X"0000"
+      X"00FF", -- Initial wait
+      X"20C7", -- CONECT 
+      X"6000", -- TL
+      X"801F", -- AR
+      X"E0FF", -- RR
+      X"285A", -- KC
+      X"0808", -- SM
+      X"0000"  -- End configuration
    );
 
    type STATE_t is (WAIT_ST, ADDR_ST, DATA_ST);
@@ -62,7 +63,7 @@ begin
             when ADDR_ST =>
                if cnt_r = 0 then
                   state_r <= DATA_ST;
-                  cnt_r   <= X"20";
+                  cnt_r   <= X"02";
                else
                   cnt_r <= cnt_r - 1;
                end if;
@@ -71,7 +72,7 @@ begin
                if cnt_r = 0 then
                   idx_r   <= idx_r + 1;
                   state_r <= WAIT_ST;
-                  cnt_r   <= X"20";
+                  cnt_r   <= X"02";
                else
                   cnt_r <= cnt_r - 1;
                end if;
@@ -84,7 +85,7 @@ begin
                   else
                      if din_i(7) = '0' then
                         state_r <= ADDR_ST;
-                        cnt_r   <= X"20";
+                        cnt_r   <= X"02";
                      end if;
                   end if;
                else
