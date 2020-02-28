@@ -21,11 +21,11 @@ architecture simulation of ctrl is
    constant C_CONFIG : config_t := (
       X"00FF", -- Initial wait
       X"20C7", -- CONECT 
-      X"6000", -- TL
-      X"801F", -- AR
+      X"6000", -- TL (no attenuation)
+      X"800C", -- AR (142.2 ms)
       X"E0FF", -- RR
-      X"285A", -- KC
-      X"0808", -- SM
+      X"287A", -- KC (note A6 = 1760 Hz)
+      X"0808", -- SM (Key On)
       X"0000"  -- End configuration
    );
 
