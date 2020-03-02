@@ -19,20 +19,31 @@ architecture simulation of ctrl is
    type config_t is array (natural range <>) of std_logic_vector(15 downto 0);
 
    constant C_CONFIG : config_t := (
-      X"00FF", -- Initial wait
+      X"0001", -- Initial wait
       X"20C7", -- CONECT 
-      X"6000", -- TL (no attenuation)
-      X"800C", -- AR (142.2 ms)
+      X"801F", -- AR fast
+      X"A000", -- D1R slow
       X"E0FF", -- RR
       X"287A", -- KC (note A6 = 1760 Hz)
+      X"6000", -- TL (no attenuation)
       X"0808", -- SM (Key On)
+      X"00FF", -- Pause
+
+      X"0800", -- SM (Key Off)
+      X"00FF", -- Pause
+
+      X"800C", -- AR (142.2 ms)
+      X"A01F", -- D1R fast
+      X"0808", -- SM (Key On)
+      X"00FF", -- Pause
+
       X"0000"  -- End configuration
    );
 
    type STATE_t is (WAIT_ST, ADDR_ST, DATA_ST);
    signal state_r : STATE_t := WAIT_ST;
    signal idx_r   : integer := 0;
-   signal cnt_r   : std_logic_vector(7 downto 0);
+   signal cnt_r   : std_logic_vector(15 downto 0);
 
 begin
 
@@ -63,7 +74,7 @@ begin
             when ADDR_ST =>
                if cnt_r = 0 then
                   state_r <= DATA_ST;
-                  cnt_r   <= X"02";
+                  cnt_r   <= X"0002";
                else
                   cnt_r <= cnt_r - 1;
                end if;
@@ -72,7 +83,7 @@ begin
                if cnt_r = 0 then
                   idx_r   <= idx_r + 1;
                   state_r <= WAIT_ST;
-                  cnt_r   <= X"02";
+                  cnt_r   <= X"0002";
                else
                   cnt_r <= cnt_r - 1;
                end if;
@@ -80,12 +91,12 @@ begin
             when WAIT_ST =>
                if cnt_r = 0 and C_CONFIG(idx_r) /= X"0000" then
                   if C_CONFIG(idx_r)(15 downto 8) = X"00" then
-                     cnt_r <= C_CONFIG(idx_r)(7 downto 0);
+                     cnt_r(15 downto 8) <= C_CONFIG(idx_r)(7 downto 0);
                      idx_r <= idx_r + 1;
                   else
                      if din_i(7) = '0' then
                         state_r <= ADDR_ST;
-                        cnt_r   <= X"02";
+                        cnt_r   <= X"0002";
                      end if;
                   end if;
                else

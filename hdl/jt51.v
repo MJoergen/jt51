@@ -99,7 +99,9 @@ wire    [3:0]   d1l_I;
 wire    [3:0]   rrate_II;
 
 wire    [1:0]   cur_op;
+`ifdef SIMULATION
 wire            zero;
+`endif
 assign  sample =zero;
 wire            keyon_II;
 
