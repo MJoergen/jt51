@@ -1,0 +1,22 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Thu May 14 09:16:58 2020
+[*]
+[dumpfile] "/home/mfj/git/MJoergen/jt51/ver/verilator/test.fst"
+[dumpfile_mtime] "Thu May 14 09:15:33 2020"
+[dumpfile_size] 494929
+[savefile] "/home/mfj/git/MJoergen/jt51/ver/verilator/test.gtkw"
+[timestart] 71715
+[size] 1540 937
+[pos] -1 -1
+*-21.102354 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.jt51.
+[sst_width] 223
+[signals_width] 231
+[sst_expanded] 1
+[sst_vpaned_height] 270
+@8421
+TOP.jt51.xleft[15:0]
+[pattern_trace] 1
+[pattern_trace] 0
