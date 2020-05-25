@@ -327,6 +327,24 @@ jt51_reg u_reg(
     .use_prev1      ( use_prev1         )
 );
 
+`ifdef SIMULATION
+`ifndef VERILATOR
+integer fdump;
+integer clk_count;
+initial begin
+    clk_count=0;
+    fdump=$fopen("jt51_cmd.txt","w");
+end
+
+always @(posedge clk) clk_count <= clk_count+1;
+
+always @(posedge write) begin
+    $fdisplay(fdump,"%d,%d,%X",clk_count,a0,din);
+end
+`endif
+`endif
+
+
 `ifndef JT51_NODEBUG
 `ifdef SIMULATION
 /* verilator lint_off PINMISSING */

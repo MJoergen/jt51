@@ -56,8 +56,9 @@ wire        load_A, load_B;
 wire        enable_irq_A, enable_irq_B;
 wire        clr_flag_A, clr_flag_B;
 wire        flag_A, flag_B, overflow_A;
+wire        zero;
 
-jt51_timers timers( 
+jt51_timers u_timers( 
     .clk        ( clk           ),
     .cen        ( cen_p1        ),
     .rst        ( rst           ),
@@ -75,6 +76,8 @@ jt51_timers timers(
     .overflow_A ( overflow_A    ),
     .irq_n      ( irq_n         )
 );
+
+/*verilator tracing_off*/
 
 `ifndef JT51_ONLYTIMERS
 `define YM_TIMER_CTRL 8'h14
@@ -340,6 +343,19 @@ jt51_mmr u_mmr(
     .use_prev2      ( use_prev2         ),
     .use_prev1      ( use_prev1         )
 );
+
+`ifdef SIMULATION
+`ifndef VERILATOR
+integer fsnd;
+initial begin
+    fsnd=$fopen("jt51.raw","wb");
+end
+
+always @(posedge zero) begin
+    $fwrite(fsnd,"%u", {xleft, xright});
+end
+`endif
+`endif
 
 endmodule
 
